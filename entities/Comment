@@ -1,0 +1,83 @@
+{
+  "name": "Comment",
+  "type": "object",
+  "properties": {
+    "consultation_id": {
+      "type": "string",
+      "description": "ID of the related consultation"
+    },
+    "stakeholder_name": {
+      "type": "string",
+      "description": "Name of the commenter"
+    },
+    "stakeholder_type": {
+      "type": "string",
+      "enum": [
+        "individual",
+        "company",
+        "professional_body",
+        "law_firm",
+        "academic",
+        "government_body",
+        "ngo",
+        "other"
+      ],
+      "description": "Type of stakeholder"
+    },
+    "stakeholder_email": {
+      "type": "string",
+      "description": "Email of the commenter"
+    },
+    "comment_type": {
+      "type": "string",
+      "enum": [
+        "overall",
+        "provision_specific"
+      ],
+      "description": "Whether the comment is on the overall amendment or a specific provision"
+    },
+    "provision_reference": {
+      "type": "string",
+      "description": "Section/provision reference if provision-specific"
+    },
+    "comment_text": {
+      "type": "string",
+      "description": "The actual comment/suggestion text"
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": [
+        "positive",
+        "negative",
+        "neutral",
+        "mixed"
+      ],
+      "description": "AI-predicted sentiment"
+    },
+    "sentiment_score": {
+      "type": "number",
+      "description": "Sentiment score from -1 to 1"
+    },
+    "ai_summary": {
+      "type": "string",
+      "description": "AI-generated summary of the comment"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Extracted keywords from the comment"
+    },
+    "is_analysed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the comment has been analysed by AI"
+    }
+  },
+  "required": [
+    "consultation_id",
+    "comment_text",
+    "stakeholder_name"
+  ]
+}

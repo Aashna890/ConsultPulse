@@ -1,0 +1,93 @@
+{
+  "name": "Consultation",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the draft legislation or amendment"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the proposed amendment"
+    },
+    "document_url": {
+      "type": "string",
+      "description": "URL to the draft document"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "open",
+        "closed",
+        "analysed"
+      ],
+      "default": "draft",
+      "description": "Current status of the consultation"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when consultation opens for comments"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when consultation closes for comments"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "company_law",
+        "llp_act",
+        "insolvency_code",
+        "securities_law",
+        "competition_act",
+        "other"
+      ],
+      "description": "Category of legislation"
+    },
+    "total_comments": {
+      "type": "number",
+      "default": 0,
+      "description": "Total number of comments received"
+    },
+    "overall_sentiment": {
+      "type": "object",
+      "description": "Aggregated sentiment analysis results",
+      "properties": {
+        "positive": {
+          "type": "number"
+        },
+        "negative": {
+          "type": "number"
+        },
+        "neutral": {
+          "type": "number"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "provisions": {
+      "type": "array",
+      "description": "List of specific provisions/sections in the draft",
+      "items": {
+        "type": "object",
+        "properties": {
+          "section_number": {
+            "type": "string"
+          },
+          "section_title": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "title",
+    "description"
+  ]
+}
