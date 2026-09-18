@@ -1,30 +1,77 @@
-#env
+# ─────────────────────────────────────────────
+# ENVIRONMENT & SECRETS — never commit these
+# ─────────────────────────────────────────────
 .env
 .env.*
+!.env.example        # keep the example template
+
+# ─────────────────────────────────────────────
+# PYTHON BACKEND
+# ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Trained ML model files (large binary — regenerate with train_model.py)
+backend/models/sentiment_model.pkl
+backend/models/vectorizer.pkl
+backend/models/model_stats.json
+
+# Kaggle datasets (very large — download separately)
+backend/data/*.csv
+backend/data/*.zip
+
+# BUT keep the database folder structure
+!backend/data/db/
+backend/data/db/consultations.json
+backend/data/db/comments.json
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+*.egg
+MANIFEST
+
+# Test & coverage
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# ─────────────────────────────────────────────
+# NODE / FRONTEND
+# ─────────────────────────────────────────────
+node_modules/
+dist/
+dist-ssr/
+*.local
 
 # Logs
-/logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# ─────────────────────────────────────────────
+# EDITOR & OS
+# ─────────────────────────────────────────────
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-.env

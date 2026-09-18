@@ -12,7 +12,8 @@ import uvicorn
 import os
 from datetime import datetime
 import uuid
-
+from dotenv import load_dotenv
+load_dotenv()  # ← Must be called before SentimentEngine is created
 from sentiment_engine import SentimentEngine
 from database import db
 
